@@ -22,6 +22,18 @@ impl Display for City {
     }
 }
 
+impl Display for Color {
+    // `f` is a buffer, this method formats struct Color
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        
+        // write! writes the print statement as a predifined format
+        write!(f, "{}: {},{}: {},{}: {}",
+               "red", self.red, "green", self.green, "blue", self.blue)
+    }
+}
+
+
+
 #[derive(Debug)]
 struct Color {
     red: u8,
@@ -44,6 +56,6 @@ fn main() {
         Color { red: 0, green: 0, blue: 0 },
     ].iter() {
         // Hint : Fix the code so you can print it using {}
-        println!("{:?}", *color);
+        println!("{}", *color);
     }
 }
